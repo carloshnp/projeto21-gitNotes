@@ -10,6 +10,8 @@ import {
 } from "@remix-run/react";
 import globalStyles from "./assets/global.css";
 import styles from "./tailwind.css";
+import { UserProvider } from "./context/UserContext";
+import { MarkdownProvider } from "./context/MarkdownContext";
 
 export const meta: MetaFunction = () => ({
   charset: "utf-8",
@@ -32,19 +34,22 @@ export const links: LinksFunction = () => {
 
 export default function App() {
   return (
-    <>
-      <html lang="en">
-        <head>
-          <Meta />
-          <Links />
-        </head>
-        <body>
-          <Outlet />
-          <ScrollRestoration />
-          <Scripts />
-          <LiveReload />
-        </body>
-      </html>
-    </>
+    <UserProvider>
+      <MarkdownProvider>
+
+        <html lang="en">
+          <head>
+            <Meta />
+            <Links />
+          </head>
+          <body>
+            <Outlet />
+            <ScrollRestoration />
+            <Scripts />
+            <LiveReload />
+          </body>
+        </html>
+      </MarkdownProvider>
+    </UserProvider>
   );
 }

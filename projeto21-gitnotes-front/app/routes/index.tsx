@@ -1,12 +1,23 @@
-import React from "react";
+import React, { useEffect } from "react";
 import View from "~/components/View";
 import { useNavigate } from "@remix-run/react";
+import SignUpForm from "~/components/SignUpForm";
+import LoginForm from "~/components/LoginForm";
 
 export default function IndexRoute() {
   const navigate = useNavigate();
+
+  useEffect(() => {
+    const token = localStorage.getItem('accessToken');
+    if (token) {
+      navigate('/dashboard');
+    }
+  }, [])
+
   return (
     <View>
-      <button className="w-40 h-16 bg-slate-700" onClick={() => navigate("/designview")}>Press me to design!</button>
+      <SignUpForm />
+      <LoginForm />
     </View>
   )
 }
