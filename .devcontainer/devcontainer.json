@@ -1,0 +1,10 @@
+{
+    "name": "projeto21-gitNotes",
+    "image": "ubuntu_v1",
+    "customizations": {
+      "vscode": {
+        "extensions": ["streetsidesoftware.code-spell-checker"]
+      }
+    },
+    "forwardPorts": [3000]
+  }
